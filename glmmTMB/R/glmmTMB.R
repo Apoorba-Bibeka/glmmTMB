@@ -304,9 +304,11 @@ stripReTrms <- function(xrt, whichReTrms = c("cnms","flist"), which="terms") {
 ##' @export
 ##' @examples
 ##' data(sleepstudy, package="lme4")
+##' sleepstudy <- transform(sleepstudy, DaysFac = factor(Days))
 ##' fm1 <- glmmTMB(Reaction ~ Days +     (1|Subject), sleepstudy)
 ##' fm2 <- glmmTMB(Reaction ~ Days + us  (1|Subject), sleepstudy)
 ##' fm3 <- glmmTMB(Reaction ~ Days + diag(1|Subject), sleepstudy)
+##' fm4 <- glmmTMB(Reaction ~ ar1(DaysFac+0|Subject), sleepstudy)
 glmmTMB <- function (
     formula,
     data = NULL,
